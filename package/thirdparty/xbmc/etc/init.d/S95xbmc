@@ -14,6 +14,9 @@ case "$1" in
         fi
         /usr/bin/amremote_config $REMOTECONF
         fbset -g 1280 720 1280 1440 32
+        if [ -f /root/.xbmc/startup.sh ]; then
+		/root/.xbmc/startup.sh
+        fi
         until /usr/lib/xbmc/xbmc.bin --standalone; do
             exit_value=$?
             case "$exit_value" in
